@@ -10,7 +10,8 @@ class NetworkConfigModel(Base):
     """
     This class is used for database mapping.
     """
-    __tablename__ = 'network_config'
+
+    __tablename__ = "network_config"
 
     id = Column(Integer, primary_key=True)
     connection = Column(Integer)
@@ -27,6 +28,7 @@ class NetworkConfigPydanticModel(BaseModel):
     """
     This class is used for data validation.
     """
+
     name: str
     config: Any
 

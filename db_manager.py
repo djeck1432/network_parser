@@ -29,7 +29,6 @@ class DBManager:
             db_name=Config.db_name,
         )
 
-
     def add_entry(self, data: NetworkConfigPydanticModel) -> None:
         """
         This function adds a new entry to the database.
@@ -41,4 +40,6 @@ class DBManager:
             self.session.add(new_entry)
             self.session.commit()
         except (IntegrityError, InvalidRequestError, DisconnectionError) as exc:
-            logger.error(f"Error while adding data to the database: {exc}", exc_info=True)
+            logger.error(
+                f"Error while adding data to the database: {exc}", exc_info=True
+            )

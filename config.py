@@ -7,6 +7,7 @@ class Config:
     """
     This class contains the database URI and other configuration parameters.
     """
+
     db_user = os.getenv("DB_USER")
     db_password = os.getenv("DB_PASSWORD")
     db_host = os.getenv("DB_HOST")
@@ -20,9 +21,14 @@ class ConfigMap:
     """
     This class contains all the keys that are used to access the data in the JSON file.
     """
+
     main_key = "frinx-uniconfig-topology:configuration"
     native_key = "Cisco-IOS-XE-native:native"
     interface_key = "interface"
-    activated_interface_names = ("Port-channel", "TenGigabitEthernet", "GigabitEthernet")
+    activated_interface_names = (
+        "Port-channel",
+        "TenGigabitEthernet",
+        "GigabitEthernet",
+    )
     deactivated_interface_names = ("BDI", "Loopback")  # Not implemented yet
     port_config_key = "Cisco-IOS-XE-ethernet:channel-group"
