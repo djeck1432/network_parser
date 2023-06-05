@@ -25,3 +25,4 @@ class ConfigMap:
     interface_key = "interface"
     activated_interface_names = ("Port-channel", "TenGigabitEthernet", "GigabitEthernet")
     deactivated_interface_names = ("BDI", "Loopback")  # Not implemented yet
+    port_config_key = "Cisco-IOS-XE-ethernet:channel-group"

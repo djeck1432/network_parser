@@ -59,12 +59,14 @@ if __name__ == "__main__":
 
         result = []
         for item in interface_config_data:
+            port_config = item.get(ConfigMap.port_config_key)
             try:
                 result_item = NetworkConfigPydanticModel(
                     name=f"{interface_name}{item.get('name')}",
                     description=item.get("description"),
                     max_frame_size=item.get("mtu"),
-                    config=item
+                    config=item,
+                    port_channel_id=port_config and port_config.get("number"),
                 )
                 db_manager.add_entry(result_item)
             except ValidationError as exc:
