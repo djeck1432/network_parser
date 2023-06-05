@@ -34,3 +34,18 @@ alembic upgrade head
 ```bash
 python main.py
 ```
+
+## Extra commands:
+### Run tests
+```bash
+pytest test.py
+```
+### Black formatting
+```bash
+python -m black .
+```
+
+### Import formatting
+```bash
+isort .
+```
