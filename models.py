@@ -1,7 +1,8 @@
-from sqlalchemy import Column, Integer, String, JSON
-from sqlalchemy.ext.declarative import declarative_base
+from typing import Any, Optional
+
 from pydantic import BaseModel
-from typing import Optional, Any
+from sqlalchemy import JSON, Column, Integer, String
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 

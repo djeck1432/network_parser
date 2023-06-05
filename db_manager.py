@@ -1,10 +1,11 @@
 import logging
+
 from sqlalchemy import create_engine
 from sqlalchemy.exc import DisconnectionError, IntegrityError, InvalidRequestError
 from sqlalchemy.orm import sessionmaker
-from app.models import NetworkConfigModel, NetworkConfigPydanticModel
-from app.config import Config
 
+from app.config import Config
+from app.models import NetworkConfigModel, NetworkConfigPydanticModel
 
 logger = logging.getLogger(__name__)
 
