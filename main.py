@@ -21,7 +21,7 @@ def get_config_json() -> dict:
     :return: dict
     """
     file_path = os.path.join(BASE_DIR, Config.config_name)
-    with open(file_path, 'r') as f:
+    with open(file_path, "r") as f:
         try:
             json_data = json.load(f)
         except json.decoder.JSONDecodeError:
@@ -46,7 +46,7 @@ def get_interface_data(json_data: dict) -> dict:
     return interface_data
 
 
-if __name__ == "__main__":
+def main():
     json_data = get_config_json()
     db_manager = DBManager()
     interface_data = get_interface_data(json_data)
@@ -57,7 +57,6 @@ if __name__ == "__main__":
             logger.info(f"No data for {interface_name}")
             continue
 
-        result = []
         for item in interface_config_data:
             port_config = item.get(ConfigMap.port_config_key)
             try:
@@ -72,3 +71,7 @@ if __name__ == "__main__":
             except ValidationError as exc:
                 logger.error(f"Error while validating data: {exc}", exc_info=True)
                 continue
+
+
+if __name__ == "__main__":
+    main()
