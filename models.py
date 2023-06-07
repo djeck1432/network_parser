@@ -1,7 +1,7 @@
 from typing import Any, Optional
 
 from pydantic import BaseModel
-from sqlalchemy import JSON, Column, Integer, String, ForeignKey
+from sqlalchemy import JSON, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy.orm.session import Session
 
@@ -33,7 +33,7 @@ class NetworkConfigModel(Base):
         :param name: name of the entry
         :return: None or int
         """
-        instance = session.query(cls).filter(cls.name==name).first()
+        instance = session.query(cls).filter(cls.name == name).first()
         return instance.id if instance else None
 
 
