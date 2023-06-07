@@ -44,3 +44,17 @@ class DBManager:
             logger.error(
                 f"Error while adding data to the database: {exc}", exc_info=True
             )
+
+    def get_portal_channel_id(self, port_config: dict | None) -> int | None:
+        """
+        This function returns the ID of the portal_channel_id with the given name.
+        :param port_config: port config
+        :return: None or int
+        """
+        if not port_config:
+            return None
+
+        if port_number := port_config.get("number"):
+            return NetworkConfigModel.get_id_by_name(
+                self.session, f"Port-channel{port_number}"
+            )
