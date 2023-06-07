@@ -59,14 +59,16 @@ def main():
             continue
 
         for item in interface_config_data:
-            port_config = item.get(ConfigMap.port_config_key)
+            port_channel_id = db_manager.get_portal_channel_id(
+                item.get(ConfigMap.port_config_key)
+            )
             try:
                 result_item = NetworkConfigPydanticModel(
                     name=f"{interface_name}{item.get('name')}",
                     description=item.get("description"),
                     max_frame_size=item.get("mtu"),
                     config=item,
-                    port_channel_id=port_config and port_config.get("number"),
+                    port_channel_id=port_channel_id,
                 )
                 db_manager.add_entry(result_item)
             except ValidationError as exc:
