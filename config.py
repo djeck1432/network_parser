@@ -26,7 +26,7 @@ class ConfigMap:
     native_key = "Cisco-IOS-XE-native:native"
     interface_key = "interface"
     activated_interface_names = (
-        "Port-channel",
+        "Port-channel",  # should be at first place
         "TenGigabitEthernet",
         "GigabitEthernet",
     )
