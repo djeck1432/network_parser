@@ -76,6 +76,9 @@ class MockDBManager:
     def add_entry(self, *args, **kwargs):
         return None
 
+    def get_portal_channel_id(self, *args, **kwargs):
+        return None
+
 
 class TestMain(unittest.TestCase):
     @patch("app.main.get_config_json")
